@@ -16,10 +16,17 @@
 					<div class="col-12 col-md-auto">
 						<div class="top-links">
 							<ul class="top-links-container">
-								<li class="top-links-item"><a href="#">EN</a>
+									@if(App::currentLocale()==="lv")
+								<li class="top-links-item"><a href="#">LV</a>
 									<ul class="top-links-sub-menu">
-										<li class="top-links-item"><a href="/lv/index.html"><img src="{{asset('images/flaglv.png')}}"
-													alt="Latvian"> LV</a></li>
+										<li class="top-links-item"><a href="{{route('page', ['lang'=>'en', 'slug'=>$slug])}}"><img src="{{asset('images/flagus.png')}}"
+													alt="English">EN</a></li>
+										@elseif(App::currentLocale()==="en")
+												<li class="top-links-item"><a href="#">EN</a>
+													<ul class="top-links-sub-menu">
+														<li class="top-links-item"><a href="{{route('page', ['lang'=>'lv', 'slug'=>$slug])}}"><img src="{{asset('images/flaglv.png')}}"
+																									  alt="English">LV</a></li>
+										@endif
 									</ul>
 								</li>
 							</ul>
@@ -48,10 +55,18 @@
 
 						<div class="menu-item d-md-block d-lg-none" style="border-color: #335489;">
 							<div class="dropdown">
-								<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">EN
+								@if(App::currentLocale()==="lv")
+								<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">LV
 								</button>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="/lv/index.html">LV</a></li>
+									<li><a class="dropdown-item" href="{{route('page', ['lang'=>'en', 'slug'=>$slug])}}">EN</a></li>
+									@else
+
+										<button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">EN
+										</button>
+										<ul class="dropdown-menu">
+											<li><a class="dropdown-item" href="{{route('page', ['lang'=>'lv', 'slug'=>$slug])}}">LV</a></li>
+									@endif
 								</ul>
 							</div>
 						</div>
@@ -67,11 +82,12 @@
 
 							<ul class="menu-container">
                                 @foreach ($pages as $page)
-                                <li class="menu-item"><a class="menu-link" href="{{route('page', ['slug'=> $page->slug])}}">
+                                <li class="menu-item"><a class="menu-link" href="{{route('page', ['lang'=>$page->lang, 'slug'=> $page->slug])}}">
+
 										<div>{{$page->title}}</div>
 									</a></li>
                                 @endforeach
-								
+
 							</ul>
 						</nav><!-- #primary-menu end -->
 					</div>

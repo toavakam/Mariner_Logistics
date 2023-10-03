@@ -9,11 +9,13 @@ class Page_block extends Model
 {
     use HasFactory;
 
-    public function page(){
-        return $this->belongsTo(Page::class, 'page_id', 'id');
+    public function page()
+    {
+        return $this->belongsTo(Page::class);
     }
-    public function gallery(){
-        return $this->hasOne(Gallery::class, 'page_id', 'id');
+    public function gallery()
+    {
+        return $this->belongsTo(Gallery::class);
     }
     protected $fillable = [
         'block_type',
@@ -24,6 +26,7 @@ class Page_block extends Model
         'gmap_url',
         'is_active',
         'sort',
+        'gallery_id'
     ];
 
 

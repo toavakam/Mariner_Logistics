@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('test');
 }); */
-
-Route::get('{slug?}', [\App\Http\Controllers\PageController::class, 'index'])->name('page');
+Route::get('{lang?}', [\App\Http\Controllers\PageController::class, 'index'])->name('main');
+Route::get('{lang}/{slug}', [\App\Http\Controllers\PageController::class, 'index'])->name('page');
 
 
 

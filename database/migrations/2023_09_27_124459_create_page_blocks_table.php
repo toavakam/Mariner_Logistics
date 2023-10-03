@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('text_2')->nullable();
             $table->string('image_2')->nullable();
             $table->foreignId('gallery_id')->nullable();
-            $table->string('gmap_url')->nullable();
+            $table->text('gmap_url')->nullable();
             $table->boolean('is_active')->default(false);
             $table->unsignedSmallInteger('sort')->default(0);
             $table->timestamps();

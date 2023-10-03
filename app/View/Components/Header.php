@@ -4,6 +4,8 @@ namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\View\Component;
 
 class Header extends Component
@@ -21,12 +23,15 @@ class Header extends Component
      */
     public function render(): View|Closure|string
     {
+        $slug = request()->route('slug');
+
         $pages = \App\Models\Page::where('is_published', true)
         ->where('show_in_header', true)
-        ->where('lang', 'en')
+        ->where('lang', App::currentLocale())
         ->orderBy('sort')
         ->get();
 
-        return view('components.header', ['pages' => $pages]);
+        return view('components.header', ['pages' => $pages, 'slug'=>$slug]);
+
     }
 }
