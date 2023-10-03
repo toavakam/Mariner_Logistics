@@ -31,7 +31,10 @@ class Header extends Component
         ->orderBy('sort')
         ->get();
 
-        return view('components.header', ['pages' => $pages, 'slug'=>$slug]);
-
+        return view('components.header', [
+            'pages' => $pages,
+            'slug' => $slug,
+            'route_name' => $slug ? 'page' : 'main',
+        ]);
     }
 }

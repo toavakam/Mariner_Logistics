@@ -16,6 +16,7 @@ class PageController extends Controller
         $page = \App\Models\Page::where('slug', $slug)
             ->where('lang', $lang)
             ->where('is_published', true)
+//            ->ddRawSql()
             ->firstOrFail();
 
         $page_blocks = \App\Models\Page_block::where('page_id', $page->id)

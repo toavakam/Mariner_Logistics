@@ -61,7 +61,7 @@
         @elseif($block_type->block_type ==='mainiconblock')
             {!!$block_type->text_1!!}
         @elseif($block_type->block_type ==='maingallery')
-            <div class="section pb-0 mb-0 bg-transparent">
+            <div class="section py-0 my-0 bg-transparent">
                 <div id="locations-carousel" class="owl-carousel carousel-widget owl-carousel-full pb-0"
                      data-animate-in="fadeIn" data-animate-out="fadeOut" data-speed="200" data-margin="0"
                      data-nav="true"
