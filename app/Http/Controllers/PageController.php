@@ -24,6 +24,7 @@ class PageController extends Controller
             ->orderBy('sort')
             ->get();
 
+
         return view('page', ['page_block' => $page_blocks]);
 
     }
