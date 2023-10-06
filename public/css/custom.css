@@ -4,4 +4,6 @@
 	Add all your Custom Styled CSS here for New Styles or
 	Overwriting Default Theme Styles for Better Handling Updates
 -----------------------------------------------------------------*/
-
+.bg-block-dark {
+    background-color: rgba(38, 125, 244, 0.05)
+}

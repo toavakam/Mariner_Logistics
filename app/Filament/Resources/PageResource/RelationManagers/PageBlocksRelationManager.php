@@ -37,6 +37,7 @@ class PageBlocksRelationManager extends RelationManager
                         Forms\Components\TextArea::make('gmap_url')
                             ->rows(5),
                         Forms\Components\Toggle::make('is_active'),
+                        Forms\Components\Toggle::make('colored'),
                         Forms\Components\TextInput::make('sort'),
                     ])
                     ->columns(1),

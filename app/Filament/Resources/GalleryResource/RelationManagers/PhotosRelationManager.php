@@ -20,10 +20,8 @@ class PhotosRelationManager extends RelationManager
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('image')
-                    ->getUploadedFileNameForStorageUsing(
-                        fn ( $file): string => (string) str($file->getClientOriginalName())
-                            ->prepend('//images/'),
-                    ),
+                    ->storeFileNamesIn('images/'),
+
                 Forms\Components\TextInput::make('title_en'),
                 Forms\Components\TextInput::make('title_lv'),
                 Forms\Components\Toggle::make('is_active'),

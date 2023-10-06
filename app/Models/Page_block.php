@@ -26,7 +26,8 @@ class Page_block extends Model
         'gmap_url',
         'is_active',
         'sort',
-        'gallery_id'
+        'gallery_id',
+        'colored',
     ];
 
 
